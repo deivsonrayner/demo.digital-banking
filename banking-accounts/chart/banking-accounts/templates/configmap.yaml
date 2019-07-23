@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{  .Chart.Name }}-configmap"
+  labels:
+    chart: '{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}'
+data:
+  MONGO_URL: "mongodb://169.57.206.164:27017/local"
