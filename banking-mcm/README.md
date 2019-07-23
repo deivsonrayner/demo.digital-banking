@@ -1,3 +1,3 @@
-# santander-application
+# Digital Banking
 
 MCM Project Application
