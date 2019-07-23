@@ -1,0 +1,17 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: {{ .Chart.Name }}-userbase
+  labels:
+    app: banking-userbase
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    name: {{ .Chart.Name }}-userbase
+    servicekind: ApplicationService
+spec:
+  deployer:
+    kind: helm
+    helm:
+      chartURL: {{.Values.chartCatalogUrl}}/{{.Values.frontend.chartName}}-{{.Values.frontend.version}}.tgz
+      namespace: {{ .Values.appNamespace }}

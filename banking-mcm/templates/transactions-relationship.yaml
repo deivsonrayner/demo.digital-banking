@@ -1,7 +1,7 @@
 apiVersion: mcm.ibm.com/v1alpha1
 kind: ApplicationRelationship
 metadata:
-  name: {{ .Chart.Name }}-backend
+  name: {{ .Chart.Name }}-transactions
   labels:
     app: {{ .Chart.Name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -10,7 +10,7 @@ metadata:
 spec:
   destination:
     kind: Deployable
-    name: {{ .Chart.Name }}-backend
+    name: {{ .Chart.Name }}-transactions
   source:
     kind: Application
     name: {{ .Chart.Name }}

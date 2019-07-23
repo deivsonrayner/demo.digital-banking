@@ -16,10 +16,22 @@ placementRef:
 subjects:
 - apiGroup: mcm.ibm.com
   kind: Deployable
-  name: {{ .Chart.Name }}-backend
+  name: {{ .Chart.Name }}-accounts
 - apiGroup: mcm.ibm.com
   kind: Deployable
-  name: {{ .Chart.Name }}-frontend
+  name: {{ .Chart.Name }}-authentication
 - apiGroup: mcm.ibm.com
   kind: Deployable
-  name: {{ .Chart.Name }}-hubzup
+  name: {{ .Chart.Name }}-bills
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-portal
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-transactions
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-userbase
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-digital-wallet

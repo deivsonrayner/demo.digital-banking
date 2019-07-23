@@ -1,0 +1,17 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: ApplicationRelationship
+metadata:
+  name: {{ .Chart.Name }}-bills
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  destination:
+    kind: Deployable
+    name: {{ .Chart.Name }}-bills
+  source:
+    kind: Application
+    name: {{ .Chart.Name }}
+  type: contains
