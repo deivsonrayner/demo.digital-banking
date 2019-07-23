@@ -13,5 +13,5 @@ spec:
   deployer:
     kind: helm
     helm:
-      chartURL: {{.Values.chartCatalogUrl}}/{{.Values.frontend.chartName}}-{{.Values.frontend.version}}.tgz
+      chartURL: {{.Values.chartCatalogUrl}}/{{.Values.support.chartName}}-{{.Values.support.version}}.tgz
       namespace: {{ .Values.appNamespace }}
