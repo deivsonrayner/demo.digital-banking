@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/accounts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/authentication" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-accounts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-authentication" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-bills" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-mcm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-portal" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-support" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-transactions" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/banking-userbase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bills" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/digital-wallet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fabric.cli-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/portal" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/support" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/transactions" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/userbase" vcs="Git" />
+  </component>
+</project>

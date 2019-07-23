@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: ibp-ordering-external
+spec:
+  hosts:
+  - ibp.ordering.remote
+  addresses:
+  - 169.46.139.174/32
+  - 169.46.139.174/32
+  - 169.46.139.174/32
+  - 169.46.139.174/32
+  - 169.46.139.174/32
+  ports:
+  - name: tcp1
+    number: 32220
+    protocol: tcp
+  - name: tcp2
+    number: 31311
+    protocol: tcp
+  - name: tcp3
+    number: 30020
+    protocol: tcp
+  - name: tcp4
+    number: 31695
+    protocol: tcp
+  - name: tcp5
+    number: 31077
+    protocol: tcp
+  resolution: NONE
+  location: MESH_EXTERNAL
+
+

@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: ibp-banco-a-peer-external
+spec:
+  hosts:
+  - ibp.remote.banco-a.peer
+  addresses:
+  - 169.46.139.174/32
+  ports:
+  - name: tcp
+    number: 30372
+    protocol: tcp
+  resolution: NONE
+  location: MESH_EXTERNAL
+
+

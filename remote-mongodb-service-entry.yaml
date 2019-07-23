@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: mongodb-external
+spec:
+  hosts:
+  - mongodb.remote
+  addresses:
+  - 169.57.206.164/32
+  ports:
+  - name: tcp
+    number: 27017
+    protocol: tcp
+  resolution: NONE
+  location: MESH_EXTERNAL
+
+
