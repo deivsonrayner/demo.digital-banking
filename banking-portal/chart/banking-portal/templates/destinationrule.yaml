@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+  name: "{{  .Chart.Name }}"
+spec:
+  host: "{{  .Chart.Name }}"
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{  .Chart.Name }}-configmap"
+  labels:
+    chart: '{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}'
+data:
+  MONGO_URL: "mongodb://169.57.206.164:27017/local"
+  GET_USERS_ENDPOINT: "banking-authentication:8080"
+  DROP_ACCOUNTS_ENDPOINT: "banking-accounts:8080/api/accounts/drop"
+  DROP_TRANSACTIONS_ENDPOINT: "banking-transactions:8080/api/transactions/drop"
+  DROP_BILLS_ENDPOINT: "banking-bills:8080/api/bills/drop"
+  UPSERT_BILL_ENDPOINT: "banking-bills:8080/api/bills/create"
+  CREATE_TRANSACTION_ENDPOINT: "banking-transactions:8080/api/transactions/create"
+

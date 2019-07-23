@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for Banking Bills Service
+name: banking-bills
+version: 1.0.0

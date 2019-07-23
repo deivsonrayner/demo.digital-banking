@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{  .Chart.Name }}-configmap"
+  labels:
+    chart: '{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}'
+data:
+  MONGO_URL: "mongodb://169.57.206.164:27017/local"
+  SESSION_SECRET: "qweqweq3eq3eweqdasd"
+  NODE_ENV: "production"
+  SIGNUP_ENDPOINT: "banking-authentication:8080/api/user/create"
+  LOGIN_ENDPOINT: "banking-authentication:8080/api/user/authenticate"
+  GET_BILLS_ENDPOINT: "banking-bills:8080/api/bills/get"
+  UPSERT_BILL_ENDPOINT: "banking-bills:8080/api/bills/create"
+  CREATE_ACCOUNT_ENDPOINT: "banking-accounts:8080/api/accounts/create"
+  GET_ACCOUNTS_ENDPOINT: "banking-accounts:8080/api/accounts/get"
+  ACCOUNT_WITHDRAW_ENDPOINT: "banking-accounts:8080/api/accounts/withdraw"
+  ACCOUNT_DEPOSIT_ENDPOINT: "banking-accounts:8080/api/accounts/deposit"
+  CREATE_TRANSACTION_ENDPOINT: "banking-transactions:8080/api/transactions/create"
+  GET_TRANSACTIONS_ENDPOINT: "banking-transactions:8080/api/transactions/get"
+  CHAT_ENDPOINT: "banking-support:8080/api/message"

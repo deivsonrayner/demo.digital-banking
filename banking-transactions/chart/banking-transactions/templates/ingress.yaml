@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{  .Chart.Name }}
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "False"
+spec:
+  rules:
+    - host: {{  .Values.ingress.host }}
+      http:
+        paths:
+          - backend:
+              serviceName: {{ .Chart.Name }}
+              servicePort: {{ .Values.service.servicePort }}

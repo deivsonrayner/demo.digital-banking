@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for Banking Support Services
+name: banking-support
+version: 1.0.0

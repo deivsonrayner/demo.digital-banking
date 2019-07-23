@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+    chart: '{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}'
+  name: "{{  .Chart.Name }}-gateway"
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - "{{ .Values.istio.gateway.host }}"
+      port:
+        name: http
+        number: {{ .Values.istio.gateway.port }}
+        protocol: HTTP
