@@ -1,0 +1,22 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: PlacementPolicy
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    name: {{ .Chart.Name }}
+    servicekind: ApplicationService
+spec:
+  replicas: {{ .Values.replicaCount }}  
+  clusterLabels:
+    matchLabels:
+      {{- range $key, $val := .Values.targetCluster.labelSelector.matchLabels }}
+      {{ $key }}: {{ $val | quote }}
+      {{- end}}
+  resourceSelector:
+    {{- range $key, $val := .Values.targetCluster.resourceSelector }}
+    {{ $key }}: {{ $val | quote }}
+    {{- end}}

@@ -1,0 +1,28 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    name: {{ .Chart.Name }}
+spec:
+  selector:
+    matchExpressions:
+    - key: app
+      operator: In
+      values:
+      - digital-banking-app
+      - banking-accounts
+      - banking-authentication
+      - banking-bills
+      - digital-wallet
+      - banking-portal
+      - banking-support
+      - banking-transactions
+      - banking-userbase
+  componentKinds:
+  - group: core
+    kind: Pods

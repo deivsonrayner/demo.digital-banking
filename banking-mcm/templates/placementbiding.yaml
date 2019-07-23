@@ -1,0 +1,25 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: PlacementBinding
+metadata:
+  name: {{ .Chart.Name }}-biding
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    name: {{ .Chart.Name }}
+    servicekind: ApplicationService
+placementRef:
+  apiGroup: mcm.ibm.com
+  kind: PlacementPolicy
+  name: {{ .Chart.Name }}
+subjects:
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-backend
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-frontend
+- apiGroup: mcm.ibm.com
+  kind: Deployable
+  name: {{ .Chart.Name }}-hubzup

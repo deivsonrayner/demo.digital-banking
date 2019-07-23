@@ -1,0 +1,41 @@
+replicaCount: 1
+chartCatalogUrl: http://10.131.15.17:8000
+
+appNamespace: default
+
+accounts:
+  version: 1.0.0
+  chartName: banking-accounts
+authentication:
+  version: 1.0.0
+  chartName: banking-authentication
+bills:
+  version: 1.0.0
+  chartName: banking-bills
+digital-wallet:
+  version: 1.0.0
+  chartName: digital-wallet
+portal:
+  version: 1.0.0
+  chartName: banking-portal
+support:
+  version: 1.0.0
+  chartName: banking-support
+transactions:
+  version: 1.0.0
+  chartName: banking-transactions
+userbase:
+  version: 1.0.0
+  chartName: banking-userbase  
+
+
+targetCluster:
+  labelSelector:
+    matchLabels:
+      vendor: "ICP"
+      region: "US"
+      environment: "Development"
+      datacenter: "sao1"
+      owner: "lab"
+  resourceSelector:
+    type: cpu
