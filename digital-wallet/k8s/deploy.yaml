@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digital-wallet
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: digital-wallet
+  template:
+    metadata:
+      labels:
+        app: digital-wallet
+        tier: backend
+    spec:
+      containers:
+      - name: digital-wallet
+        image: us.icr.io/digital-banking/digital-wallet:0.1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 250m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        # envFrom:
+        # - secretRef:
+        #     name: database-credentials
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: digital-wallet-ingress
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "False"
+spec:
+  rules:
+  - host: digital-wallet.iks-cluster.sao01.containers.appdomain.cloud
+    http:
+      paths:
+      - backend:
+          serviceName: digital-wallet
+          servicePort: 8080
+---
+ # Service to expose frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: digital-wallet
+  labels:
+    app: digital-wallet
+    tier: backend
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+  selector:
+    app: digital-wallet
+    tier: backend
+
+

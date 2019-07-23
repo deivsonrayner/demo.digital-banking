@@ -1,0 +1,29 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+revisionHistoryLimit: 3
+image:
+  repository: us.icr.io/digital-banking/digital-wallet
+  tag: 0.1
+  pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+livenessProbe:
+  initialDelaySeconds: 3000
+  periodSeconds: 1000
+service:
+  type: ClusterIP
+  servicePort: 8080
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    cpu:
+      targetAverageUtilization: 80
+    memory:
+      targetAverageUtilization: 80
+ingress:
+  host: digital-wallet.iks-cluster.sao01.containers.appdomain.cloud
