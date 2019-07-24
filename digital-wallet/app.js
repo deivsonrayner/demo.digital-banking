@@ -96,6 +96,17 @@ app.get('/api/digital-wallet/account/:number', async function (req, res) {
     }
 });
 
+app.get('/api/digital-wallet/account/all', async function (req, res) {
+
+    try {
+        const result =  await contract.submitTransaction('queryAllAccounts');
+        console.log(`Transaction has been submitted: RESULT: ${result.toString()}`);
+        res.status(200).send(result.toString());
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 app.post('/api/digital-wallet/create', async function (req, res) {
     const account = req.body.account;
     const cpf     = req.body.cpf;
