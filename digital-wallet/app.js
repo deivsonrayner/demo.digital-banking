@@ -96,7 +96,7 @@ app.get('/api/digital-wallet/account/:number', async function (req, res) {
     }
 });
 
-app.get('/api/digital-wallet/account/all', async function (req, res) {
+app.get('/api/digital-wallet/accounts', async function (req, res) {
 
     try {
         const result =  await contract.submitTransaction('queryAllAccounts');
